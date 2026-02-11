@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Imam Bukhari Grand Masjid — Makkah, Saudi Arabia</title>
+    <meta name="description"
+        content="Imam Bukhari Grand Masjid in Makkah, Saudi Arabia. Discover the beauty of sacred architecture." />
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --gold: #c9a84c;
+            --gold-light: #e8d48b;
+            --cream: #faf6ee;
+            --cream-dark: #f0e9d8;
+            --brown: #5a3e28;
+            --brown-dark: #3d2a1a;
+            --text: #2c2016;
+            --text-light: #7a6c5f;
+            --white: #ffffff;
+            --radius: 14px;
+            --shadow: 0 4px 24px rgba(0, 0, 0, .07);
+            --nav-h: 60px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--nav-h);
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 72px 0;
+        }
+
+        .section-label {
+            font-size: .72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+            color: var(--brown-dark);
+            margin-bottom: 8px;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .accent-bar {
+            height: 3px;
+            width: 48px;
+            border-radius: 2px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            margin-top: 14px;
+        }
+
+        /* ── Nav ── */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            height: var(--nav-h);
+            background: rgba(250, 246, 238, .88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(201, 168, 76, .12);
+        }
+
+        .nav .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--brown-dark);
+        }
+
+        .nav-logo span {
+            color: var(--gold);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            font-size: .88rem;
+            font-weight: 500;
+            color: var(--text-light);
+            transition: color .2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Language toggle */
+        .lang-btn {
+            background: var(--gold);
+            color: var(--white);
+            border: none;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: .82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background .2s, transform .15s;
+            letter-spacing: .3px;
+        }
+
+        .lang-btn:hover {
+            background: var(--brown);
+            transform: scale(1.04);
+        }
+
+        .nav-ham {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .nav-ham span {
+            width: 22px;
+            height: 2px;
+            background: var(--brown-dark);
+            border-radius: 1px;
+            display: block;
+        }
+
+        @media (max-width: 640px) {
+            .nav-ham {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                inset: var(--nav-h) 0 0 0;
+                flex-direction: column;
+                background: var(--cream);
+                padding: 36px 24px;
+                gap: 20px;
+                transform: translateX(100%);
+                transition: transform .3s;
+            }
+
+            .nav-links.open {
+                transform: translateX(0);
+            }
+        }
+
+        /* ── RTL ── */
+        html[dir="rtl"] body {
+            direction: rtl;
+        }
+
+        html[dir="rtl"] .nav-links {
+            flex-direction: row-reverse;
+        }
+
+        html[dir="rtl"] .accent-bar {
+            margin-left: auto;
+            margin-right: 0;
+        }
+
+        @media (max-width: 640px) {
+            html[dir="rtl"] .nav-links {
+                flex-direction: column;
+            }
+
+            html[dir="rtl"] .nav-links.open {
+                transform: translateX(0);
+            }
+        }
+
+        /* ── Hero ── */
+        .hero {
+            position: relative;
+            text-align: center;
+            padding: 100px 24px 80px;
+            background: linear-gradient(168deg, rgba(90, 62, 40, .75), rgba(61, 42, 26, .85)),
+                url('images/exterior-3.jpg') center/cover no-repeat;
+            color: var(--white);
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: var(--cream);
+            clip-path: ellipse(55% 100% at 50% 100%);
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: .85;
+            margin-bottom: 36px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 30px;
+            border-radius: 10px;
+            font-size: .95rem;
+            font-weight: 600;
+            transition: transform .2s, box-shadow .2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, .12);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        /* ── Gallery ── */
+        .gallery-bg {
+            background: var(--white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: var(--radius);
+            background: var(--cream-dark);
+            transition: transform .3s;
+        }
+
+        .gallery-grid img:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-grid .wide {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 640px) {
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-grid .wide {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid .wide {
+                grid-column: span 1;
+            }
+        }
+
+        /* ── Contact ── */
+        .contact-bg {
+            background: var(--white);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .contact-card {
+            background: var(--cream);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .contact-card h3 {
+            font-size: 1.05rem;
+            color: var(--brown-dark);
+            margin-bottom: 18px;
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 14px;
+            font-size: .94rem;
+            color: var(--text);
+        }
+
+        .contact-row .lbl {
+            font-size: .78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            color: var(--text-light);
+            min-width: 52px;
+        }
+
+        .contact-row a {
+            color: var(--brown-dark);
+            font-weight: 600;
+            border-bottom: 1px dashed var(--gold);
+            transition: color .2s;
+        }
+
+        .contact-row a:hover {
+            color: var(--gold);
+        }
+
+        .location-card {
+            background: var(--cream);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .location-card h3 {
+            font-size: 1.05rem;
+            color: var(--brown-dark);
+            margin-bottom: 8px;
+        }
+
+        .location-card p {
+            font-size: .92rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .btn-sm {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 11px 22px;
+            border-radius: 8px;
+            font-size: .9rem;
+            font-weight: 600;
+            background: var(--gold);
+            color: var(--white);
+            transition: background .2s, transform .2s;
+            align-self: flex-start;
+        }
+
+        .btn-sm:hover {
+            background: var(--brown);
+            transform: translateY(-1px);
+        }
+
+        @media (max-width: 640px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ── Footer ── */
+        .footer {
+            background: var(--brown-dark);
+            color: rgba(255, 255, 255, .6);
+            padding: 32px 0;
+            text-align: center;
+            font-size: .85rem;
+        }
+
+        .footer a {
+            color: var(--gold-light);
+            font-weight: 500;
+        }
+
+        .footer a:hover {
+            color: var(--white);
+        }
+
+        .footer-row {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .back-top {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .back-top:hover {
+            color: var(--white);
+        }
+
+        /* ── Geo border ── */
+        .geo {
+            height: 3px;
+            background: repeating-linear-gradient(90deg,
+                    var(--gold) 0 12px, transparent 12px 18px,
+                    var(--gold-light) 18px 30px, transparent 30px 36px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Nav -->
+    <nav class="nav">
+        <div class="wrap">
+            <a href="#" class="nav-logo">☪ <span>Imam Bukhari</span> Masjid</a>
+            <button class="nav-ham" aria-label="Menu"
+                onclick="document.querySelector('.nav-links').classList.toggle('open')">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="#contact" data-i18n="navContact">Contact</a></li>
+                <li><button class="lang-btn" id="langBtn" aria-label="Switch language">عربي</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="geo"></div>
+
+    <!-- Hero -->
+    <header class="hero" id="top">
+        <div class="hero-inner">
+            <h1>Imam Bukhari Grand Masjid</h1>
+            <p data-i18n="heroLocation">Makkah, Saudi Arabia</p>
+            <a href="https://maps.app.goo.gl/hL4DXuEifP99bRMH8?g_st=ic" target="_blank" rel="noopener"
+                class="btn btn-gold" data-i18n="heroBtn">📍 Open in Google Maps</a>
+        </div>
+    </header>
+
+    <!-- Gallery -->
+    <section class="section gallery-bg" id="gallery">
+        <div class="wrap">
+            <div class="gallery-grid">
+                <img src="images/interior.png"
+                    alt="Prayer hall interior with crystal chandelier, tall columns, and patterned carpet" />
+                <img src="images/exterior-1.jpg" alt="Front view of the masjid showing golden domes and two minarets" />
+                <img src="images/exterior-2.jpg" alt="Aerial view of the masjid and surrounding Makkah neighborhood" />
+                <img class="wide" src="images/exterior-3.jpg"
+                    alt="Street-level panoramic view with both minarets visible" />
+                <img src="images/exterior-4.jpg" alt="Close-up exterior showing arched windows and minaret detail" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact + Location -->
+    <section class="section contact-bg" id="contact">
+        <div class="wrap">
+            <div class="section-header">
+                <div class="section-label" data-i18n="contactLabel">Get in Touch</div>
+                <h2 class="section-title" data-i18n="contactTitle">Contact</h2>
+                <div class="accent-bar"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3 data-i18n="imamName">Imam Mohammed Bukhari</h3>
+                    <div class="contact-row">
+                        <span class="lbl" data-i18n="phoneLabel">Phone</span>
+                        <a href="tel:+966538166188">+966 538 166 188</a>
+                    </div>
+                    <div class="contact-row">
+                        <span class="lbl" data-i18n="emailLabel">Email</span>
+                        <a href="mailto:mohammedbukharimosque@gmail.com">mohammedbukharimosque@gmail.com</a>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <h3 data-i18n="findUs">Find Us</h3>
+                    <p data-i18n="locationText">Located in the heart of Makkah, Saudi Arabia.</p>
+                    <a href="https://maps.app.goo.gl/hL4DXuEifP99bRMH8?g_st=ic" target="_blank" rel="noopener"
+                        class="btn-sm" data-i18n="viewMap">📍 View on Google Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="geo"></div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-row">
+                <a href="tel:+966538166188">📞 +966 538 166 188</a>
+                <a href="mailto:mohammedbukharimosque@gmail.com">✉️ mohammedbukharimosque@gmail.com</a>
+            </div>
+            <p data-i18n="footerText">Imam Bukhari Grand Masjid — Makkah, Saudi Arabia</p>
+            <a href="#top" class="back-top" data-i18n="backTop">↑ Back to top</a>
+        </div>
+    </footer>
+
+    <script>
+        var lang = 'en';
+        var dict = {
+            en: {
+                navContact: 'Contact',
+                heroLocation: 'Makkah, Saudi Arabia',
+                heroBtn: '📍 Open in Google Maps',
+                contactLabel: 'Get in Touch',
+                contactTitle: 'Contact',
+                imamName: 'Imam Mohammed Bukhari',
+                phoneLabel: 'Phone',
+                emailLabel: 'Email',
+                findUs: 'Find Us',
+                locationText: 'Located in the heart of Makkah, Saudi Arabia.',
+                viewMap: '📍 View on Google Maps',
+                footerText: 'Imam Bukhari Grand Masjid — Makkah, Saudi Arabia',
+                backTop: '↑ Back to top'
+            },
+            ar: {
+                navContact: 'التواصل',
+                heroLocation: 'مكة المكرمة، المملكة العربية السعودية',
+                heroBtn: '📍 افتح في خرائط جوجل',
+                contactLabel: 'تواصل معنا',
+                contactTitle: 'التواصل',
+                imamName: 'الإمام محمد البخاري',
+                phoneLabel: 'الهاتف',
+                emailLabel: 'البريد',
+                findUs: 'موقعنا',
+                locationText: 'يقع في قلب مكة المكرمة، المملكة العربية السعودية.',
+                viewMap: '📍 عرض على خرائط جوجل',
+                footerText: 'مسجد الإمام البخاري الكبير — مكة المكرمة',
+                backTop: '↑ العودة للأعلى'
+            }
+        };
+
+        document.getElementById('langBtn').addEventListener('click', function () {
+            lang = lang === 'en' ? 'ar' : 'en';
+            this.textContent = lang === 'en' ? 'عربي' : 'EN';
+
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.documentElement.lang = lang;
+
+            document.querySelectorAll('[data-i18n]').forEach(function (el) {
+                var key = el.getAttribute('data-i18n');
+                if (dict[lang][key]) el.textContent = dict[lang][key];
+            });
+
+            document.querySelector('.nav-links').classList.remove('open');
+        });
+    </script>
+
+</body>
+
+</html>
