@@ -356,6 +356,17 @@
             box-shadow: var(--shadow);
         }
 
+        .imam-photo {
+            width: 74px;
+            height: 74px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top;
+            filter: grayscale(100%);
+            border: 2px solid var(--gold-light);
+            margin-bottom: 14px;
+        }
+
         .contact-card h3 {
             font-size: 1.05rem;
             color: var(--brown-dark);
@@ -539,6 +550,7 @@
             </div>
             <div class="contact-grid">
                 <div class="contact-card">
+                    <img src="images/imam.jpg" alt="Imam Mohammed Bukhari" class="imam-photo" />
                     <h3 data-i18n="imamName">Imam Mohammed Bukhari</h3>
                     <div class="contact-row">
                         <span class="lbl" data-i18n="phoneLabel">Phone</span>
